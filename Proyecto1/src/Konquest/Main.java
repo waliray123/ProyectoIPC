@@ -103,11 +103,11 @@ public class Main {
                 }
                 try{
                 mapasJugables[numeroMapaJugar].DibujarMapa();
-//                Juego juegoPrincipal = new Juego();
-//                juegoPrincipal.Partida(mapasJugables[numeroMapaJugar].getJugador1(), 
-//                        mapasJugables[numeroMapaJugar].getJugador2(), mapasJugables[numeroMapaJugar].obtenerTablero(),
-//                        mapasJugables[numeroMapaJugar], mapasJugables[numeroMapaJugar].obtenerCantidadColumnas(), 
-//                        mapasJugables[numeroMapaJugar].obtenerCantidadFilas());
+                Juego juegoPrincipal = new Juego();
+                juegoPrincipal.Partida(mapasJugables[numeroMapaJugar].getJugador1(), 
+                        mapasJugables[numeroMapaJugar].getJugador2(), mapasJugables[numeroMapaJugar].obtenerTablero(),
+                        mapasJugables[numeroMapaJugar], mapasJugables[numeroMapaJugar].obtenerCantidadColumnas(), 
+                        mapasJugables[numeroMapaJugar].obtenerCantidadFilas());
                 }catch(NullPointerException e){
                     
                 }
