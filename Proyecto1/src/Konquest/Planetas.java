@@ -73,7 +73,7 @@ public class Planetas {
     }
     
     
-
+    //constructor
     public Planetas(String NombrePlaneta, int porcentajeMuerte, int cantidadDinero, 
             int cantidadConstructores, int posicionX, int posicionY,int cantidadNaves,
             int cantidadGuerreros) {
@@ -106,6 +106,10 @@ public class Planetas {
         System.out.println("Cantidad Guerreros: " + this.guerrerosDelPlaneta.length);        
     }
     
+    /**
+    * El metodo sirve para verificar que constructores estan disponibles para construir una nave
+    * @param tipoConstructor
+    */
     public boolean hayTipoConstructorNoEnCola(int tipoConstructor){
         boolean sePuedePonerConstructorEnCola = false;
         for (int i = 0; i < this.constructoresEnPlaneta.length; i++) {
@@ -129,6 +133,10 @@ public class Planetas {
         return sePuedePonerConstructorEnCola;
     }
     
+    /**
+    * El metodo sirve para verificar que constructores estan en cola para no ponerlos a construir una nave
+    * @param constructorEnPlanetaListo
+    */
     public boolean hayConstructorEnCola(Constructores constructorEnPlanetaListo){
         boolean ponerConstructorEnCola = true;
         for (int i = 0; i < this.constructoresEnCola.length; i++) {
@@ -141,6 +149,12 @@ public class Planetas {
         return ponerConstructorEnCola;
     }
     
+    /**
+    * El metodo sirve para poner a construir una nave y cuando este lista crearla como objeto y asignarla a su planeta
+    * @param tipoNave
+    * @param tipoConstructor
+    * @param turno
+    */
     public void produccionNaves(int tipoNave, int tipoConstructor,int turno){
         if (tipoNave != 0 && tipoConstructor != 0) {
             String navesEnCola2[] = this.navesEnCola;
@@ -277,6 +291,10 @@ public class Planetas {
         this.cantidadNaves = this.navesEnPlaneta.length;
     }
     
+    /**
+    * El metodo sirve para obtener cuantos guerreros de ese tipo(parametro) hay en el planeta
+    * @param tipo
+    */
     public Integer cantidadGuerrerosPorTipo(String tipo){
         double factorMuerte = 0;
         int cantidadGuerrerosPorTipo = 0;
@@ -301,6 +319,11 @@ public class Planetas {
         return cantidadGuerrerosPorTipo;
     }
     
+    /**
+    * El metodo sirve para verificar que una nave no este en cola para enviarla a una flota
+    * @param tipoNave
+    * @return Naves
+    */
     public  Naves navesNoEnColaPorTipo(String tipoNave){
         boolean naveListaParaViajar = true;
         for (int i = 0; i < this.navesEnPlaneta.length; i++) {
@@ -325,6 +348,12 @@ public class Planetas {
         return null;
     }
     
+    /**
+    * El metodo sirve para asignar guerreros de un solo tipo a una flota enviando el arreglo con los guerreros
+    * @param tipo
+    * @param cantidadGuerreros
+    * @return Naves
+    */
     public Guerreros[] guerrerosEnNave(String tipo, int cantidadGuerreros){
         Guerreros[] guerrerosEnNave = new Guerreros[cantidadGuerreros];
         double factorMuerte = 0;
@@ -362,6 +391,10 @@ public class Planetas {
         return guerrerosEnNave;
     }
     
+    /**
+    * El metodo sirve para asignar guerreros al planeta cuando una flota aliada arribe
+    * @param guerrerosEntrar
+    */
     public void agregrarGuerreros(Guerreros[] guerrerosEntrar){
         Guerreros[] guerrerosDelPlaneta2 = this.guerrerosDelPlaneta;
         int contadorGuerrerosEntrar = 0;
@@ -374,6 +407,11 @@ public class Planetas {
             contadorGuerrerosEntrar += 1; 
         }
     }
+    
+    /**
+    * El metodo sirve para asignar una nave a la flota por lo tanto no puede ser usada mientra esta en ella
+    * @param naveListaParaViajar
+    */
     public void agregrarNaveAlViaje(Naves naveListaParaViajar){
         for (int i = 0; i < this.navesEnPlaneta.length; i++) {
             if (this.navesEnPlaneta[i] != null) {
@@ -391,6 +429,10 @@ public class Planetas {
         }
     }
     
+    /**
+    * El metodo sirve para que cuando una nave llegue a su destino regrese al planeta para volver a usarse
+    * @param naveViajando
+    */
     public void regresarNaveDelViaje(Naves naveViajando){
         for (int i = 0; i < this.navesViajando.length; i++) {
             if(this.navesViajando[i] != null){
@@ -409,16 +451,26 @@ public class Planetas {
         
     }
 
+    /**
+    * El metodo asigna una cantidad de guerreros al planeta
+    * @param guerrerosDelPlaneta
+    */
     public void setGuerrerosDelPlaneta(Guerreros[] guerrerosDelPlaneta) {
         this.guerrerosDelPlaneta = guerrerosDelPlaneta;
         this.cantidadGuerreros = this.guerrerosDelPlaneta.length;
     }
     
-    
+    /**
+    * El metodo se usa para que los planetas produzcan la cantidad de dinero segun su capacidad 
+    */
     public void produccionDinero(){
         
     }
     
+    /**
+    * El metodo devuelve el tipo del planeta que es
+    * @return tipo del Planeta
+    */
     public String tipoPlaneta(){
         return "";
     }

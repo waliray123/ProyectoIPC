@@ -18,7 +18,14 @@ public class Juego {
     private Flotas[] flotasJugador2 = new Flotas[1];
 
     Scanner scaner = new Scanner(System.in);
-
+    
+    /**
+    * El metodo sirve para buscar segun el turno un planeta en la lista de jugador
+    * @param contadorTurnos
+    * @param jugador1
+    * @param jugador2
+    * @param planetaBuscar
+    */
     public boolean TurnosPlanetaEnJugador(int contadorTurnos, Jugador jugador1, Jugador jugador2, Planetas planetaBuscar) {
         boolean estaPlanetaEnJugador = false;
         if (contadorTurnos == 1) {
@@ -28,7 +35,13 @@ public class Juego {
         }
         return estaPlanetaEnJugador;
     }
-
+    
+    /**
+    * El metodo sirve para verificar si una nave puede ser enviada con una cantidad de guerreros de cierto tipo
+    * @param cantidadGuerreros
+    * @param tipoGuerrero
+    * @param naveParaViaje
+    */
     public boolean sePuedeCargarLaNave(int cantidadGuerreros, String tipoGuerrero, Naves naveParaViaje) {
         int espacioOcupadoEnNave = 0;
         if (tipoGuerrero.equalsIgnoreCase("Mole")) {
@@ -48,7 +61,13 @@ public class Juego {
         }
         return false;
     }
-
+    
+    /**
+    * El metodo sirve para verificar que flotas estan llegando a los planetas de destino
+    * @param turno
+    * @param jugador1
+    * @param jugador2
+    */
     public void revisarFlotas(int turno, Jugador jugador1, Jugador jugador2) {
         for (int i = 0; i < this.flotasJugador1.length; i++) {
             try {
@@ -79,7 +98,13 @@ public class Juego {
             }
         }
     }
-
+    
+    /**
+    * El metodo sirve para realizar la batalla entre guerreros
+    * @param flotaIngreso
+    * @param jugadorDefensa
+    * @param jugadorAtaque
+    */
     public void conflicto(Flotas flotaIngreso, Jugador jugadorDefensa, Jugador jugadorAtaque) {
         Planetas planetaDefensa = flotaIngreso.obtenerPlanetaLlegada();
         Guerreros[] guerrerosDefensa = planetaDefensa.obtenerGuerrerosDelPlaneta();
@@ -145,7 +170,11 @@ public class Juego {
             System.out.println("Planeta: " + planetaDefensa.obtenerNombrePlaneta() + "Ahora es de: " + jugadorAtaque.getNombreJugador());
         }        
     }
-
+    
+    /**
+    * El metodo sirve para realizar agregar guerreros a un planeta aliado enviado en una flota
+    * @param flotaIngreso
+    */
     public void arriboGuerreros(Flotas flotaIngreso) {
         Planetas planetaEntrada = flotaIngreso.obtenerPlanetaLlegada();
         Planetas planetaSalida = flotaIngreso.obtenerPlanetaSalida();
@@ -155,7 +184,16 @@ public class Juego {
 
         flotaIngreso.setNaveEnFlota(null);
     }
-
+    
+    /**
+    * Es el metodo principal donde transcurren todos los eventos de la partida
+    * @param jugador1
+    * @param jugador2
+    * @param tablero
+    * @param mapaJuego
+    * @param cantidadColumnas
+    * @param cantidadFilas
+    */
     public void Partida(Jugador jugador1, Jugador jugador2, Planetas[][] tablero, Mapa mapaJuego, int cantidadColumnas, int cantidadFilas) {
         boolean Ganar = false;
         int contadorTurnosDeJugador = 1;
@@ -493,6 +531,12 @@ public class Juego {
             }
         }
     }
+    
+    /**
+    * El metodo sirve para verificar quien y cuando termina el juego segun sus planetas en juego
+    * @param jugador1
+    * @param jugador2
+    */
     public boolean verificarTerminoJuego(Jugador jugador1, Jugador jugador2){
         if(jugador1.obtenerCantidadPlanetasConquistados() <=0){
             System.out.println("Ha ganado el jugador 2");

@@ -31,7 +31,9 @@ public class Mapa {
     private Jugador jugador1;
     private Jugador jugador2;
     
-    
+    /**
+    * El metodo se usa para obtener la cantidad de filas y columnas segun lo que ingrese el usuario
+    */
     public void obtenerCantidadFilasYColumnasInicial(){
         System.out.println("Ingrese la cantidad de filas a dibujar en el mapa");
         this.cantidadFilas = Integer.parseInt(scaner.nextLine());
@@ -40,6 +42,9 @@ public class Mapa {
         
     }
     
+    /**
+    * El metodo se usa para obtener la cantidad de planetas neutrales segun lo que ingrese el usuario
+    */
     public boolean crearCantidadPlanetasNeutrales(){
         System.out.println("Ingrese la cantidad de Planetas Neutrales en el mapa");
         System.out.println("Recuerde que los planetas de cada jugador no son neutrales");
@@ -59,6 +64,10 @@ public class Mapa {
         
     }
     
+    /**
+    * El metodo se usa para crear los planetas neutrales y de los jugadores
+    * siendo ellos quienes controlan la alietoriedad de cada planeta neutral
+    */
     public void crearPlanetasEnMapa(){
         //Variables para creacion de Planeta
         String nombrePlaneta = null;
@@ -238,6 +247,10 @@ public class Mapa {
         }
     }
     
+    /**
+    * El metodo se usa para obtener los nombres de los 2 jugadores
+    * limitandolos a usar unicamente 3 caracteres
+    */
     public void NombresJugadores(){        
         String nombre; 
         for (int i = 1; i <= 2; i++) {
@@ -260,7 +273,7 @@ public class Mapa {
     
     
     /**
-     * Este metodo se usa para verificar que cantidad de Guerreros va a tener.
+     * Este metodo se usa para verificar que cantidad de Guerreros va a tener segun la alietoriedad.
      * Si es aleatorio toma los de produccion.
      * Si no es aleatorio toma los que se indicaron anteriormente.
      * @param produccionGuerreros
@@ -276,7 +289,9 @@ public class Mapa {
     }
     
     
-    
+    /**
+    * El metodo se usa para verificar que un planeta no se ponga en la coordenada de otro
+    */
     public boolean HayPlanetaEnPosicion(int posicionX, int posicionY, int planetasCreados){
         boolean planetaNoOcupado = true;
         for (int i = 0; i < planetasCreados; i++) {
@@ -291,7 +306,6 @@ public class Mapa {
     
     
     public void DibujarMapa(){
-        //No esta terminado
         int contador = 1;
         String color = "\u001B[0m";
         char letraColumna = 65;
@@ -371,17 +385,6 @@ public class Mapa {
         }
         color = "\u001B[0m";
     }
-    
-    
-    
-//    public void PruebaPosiciones(){
-//        for (Planetas planetas : this.planetasEnMapa) {
-//            System.out.println("Nombre: " + planetas.obtenerNombrePlaneta());
-//            System.out.println("Posicion en x " + planetas.obtenerPosicionX());
-//            System.out.println("Posicion en y " + planetas.obtenerPosicionY());
-//        }
-////        System.out.println("\u001B[32m" + "Texto de color Verde");
-//    }
 
     public Jugador getJugador1() {
         return jugador1;
@@ -390,9 +393,6 @@ public class Mapa {
     public Jugador getJugador2() {
         return jugador2;
     }
-    
-    
-    
     
     public int obtenerCantidadPlanetasNeutrales(){        
         return this.cantidadPlanetasNeutrales;
