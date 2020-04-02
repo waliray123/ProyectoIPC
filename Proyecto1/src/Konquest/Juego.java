@@ -477,9 +477,9 @@ public class Juego {
                 contadorTurnosDeJugador += 1;
             } else if (contadorTurnosDeJugador == 2) {
                 contadorTurnosDeJugador = 1;
-                contadorTurnosJuego += 1;                
-                mapaJuego.DibujarMapa();
-                this.revisarFlotas(contadorTurnosJuego, jugador1, jugador2);
+                contadorTurnosJuego += 1;
+                this.revisarFlotas(contadorTurnosJuego, jugador1, jugador2);                
+                mapaJuego.DibujarMapa();                
                 for (int i = 0; i < cantidadFilas; i++) {
                     for (int j = 0; j < cantidadColumnas; j++) {
                         if (tablero[i][j] != null) {

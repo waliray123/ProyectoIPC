@@ -20,9 +20,6 @@ import java.util.Scanner;
  * @author user-ubunto
  */
 public class Planetas {
-    public static final String ANSI_Verde = "\u001B[32m";
-    public static final String ANSI_Amarillo = "\u001B[33m";
-    public static final String ANSI_Reset = "\u001B[0m";
     
     private String nombrePlaneta;
     protected int porcentajeMuerte;

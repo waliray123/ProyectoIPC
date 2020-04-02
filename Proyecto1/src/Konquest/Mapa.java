@@ -28,8 +28,9 @@ public class Mapa {
     private String nombreJ1;
     private String nombreJ2;   
     
-    public static Jugador jugador1;
-    public static Jugador jugador2;
+    private Jugador jugador1;
+    private Jugador jugador2;
+    
     
     public void obtenerCantidadFilasYColumnasInicial(){
         System.out.println("Ingrese la cantidad de filas a dibujar en el mapa");
@@ -292,10 +293,10 @@ public class Mapa {
     public void DibujarMapa(){
         //No esta terminado
         int contador = 1;
-        String color = "";
+        String color = "\u001B[0m";
         char letraColumna = 65;
         for (int j = 0; j < this.cantidadColumnas; j++) {
-            System.out.print("      "+Character.toString(letraColumna)+"     ");
+            System.out.print(color+"      "+Character.toString(letraColumna)+"     ");
             letraColumna+=1;
         }
         System.out.println("");
@@ -344,6 +345,7 @@ public class Mapa {
                     planetaEnJugador1 = false;
                     planetaEnJugador2 = false;
                 }
+                color = "\u001B[0m";
                 if (j == (this.cantidadColumnas-1)) {
                     contador+=1;
                     System.out.println("");
@@ -359,27 +361,37 @@ public class Mapa {
             for (int j = 0; j < this.cantidadColumnas; j++) {
                  
                 if (j == (this.cantidadColumnas-1)) {
-                 System.out.println(" ---------- ");   
+                 System.out.println(color +" ---------- ");   
                 }else{
-                 System.out.print(" ---------- ");   
+                 System.out.print(color +" ---------- ");   
                 }
             }
             
             
         }
-        
+        color = "\u001B[0m";
     }
     
     
     
-    public void PruebaPosiciones(){
-        for (Planetas planetas : this.planetasEnMapa) {
-            System.out.println("Nombre: " + planetas.obtenerNombrePlaneta());
-            System.out.println("Posicion en x " + planetas.obtenerPosicionX());
-            System.out.println("Posicion en y " + planetas.obtenerPosicionY());
-        }
-//        System.out.println("\u001B[32m" + "Texto de color Verde");
+//    public void PruebaPosiciones(){
+//        for (Planetas planetas : this.planetasEnMapa) {
+//            System.out.println("Nombre: " + planetas.obtenerNombrePlaneta());
+//            System.out.println("Posicion en x " + planetas.obtenerPosicionX());
+//            System.out.println("Posicion en y " + planetas.obtenerPosicionY());
+//        }
+////        System.out.println("\u001B[32m" + "Texto de color Verde");
+//    }
+
+    public Jugador getJugador1() {
+        return jugador1;
     }
+
+    public Jugador getJugador2() {
+        return jugador2;
+    }
+    
+    
     
     
     public int obtenerCantidadPlanetasNeutrales(){        

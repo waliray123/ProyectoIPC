@@ -18,10 +18,10 @@ public class Jugador {
     public int numeroJugador;
     private String nombreJugador;
     private Planetas[] listaPlanetas;
-    private Naves[] listaNaves;
-    private Constructores[] listaConstructores;
+//    private Naves[] listaNaves;
+//    private Constructores[] listaConstructores;
     private int cantidadDinero;
-    private Guerreros[] listaGuerreros;
+//    private Guerreros[] listaGuerreros;
 
     public Jugador(int numeroJugador, String nombreJugador, Planetas primerPlaneta,int cantidadDinero) {
         this.nombreJugador = nombreJugador;
