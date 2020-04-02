@@ -27,7 +27,7 @@ public class Main {
         
         
         Scanner scaner = new Scanner(System.in);
-        
+        Mapa[] mapasJugables = new Mapa[5];
         
         System.out.println("Bienvenido a Konquest");
         int contadorMapasUsados = 0;
@@ -39,7 +39,7 @@ public class Main {
             int numeroMapaJugar = 0;
             
             if(jugar.equalsIgnoreCase("s")){
-                Mapa[] mapasJugables = new Mapa[5];
+                
                 System.out.println("Que deseas hacer? Escribe el numero de la opcion");
                 System.out.println("1.Crear un mapa nuevo");
                 System.out.println("2.Jugar un mapa usado anteriormente");
@@ -103,11 +103,11 @@ public class Main {
                 }
                 try{
                 mapasJugables[numeroMapaJugar].DibujarMapa();
-                Juego juegoPrincipal = new Juego();
-                juegoPrincipal.Partida(mapasJugables[numeroMapaJugar].getJugador1(), 
-                        mapasJugables[numeroMapaJugar].getJugador2(), mapasJugables[numeroMapaJugar].obtenerTablero(),
-                        mapasJugables[numeroMapaJugar], mapasJugables[numeroMapaJugar].obtenerCantidadColumnas(), 
-                        mapasJugables[numeroMapaJugar].obtenerCantidadFilas());
+//                Juego juegoPrincipal = new Juego();
+//                juegoPrincipal.Partida(mapasJugables[numeroMapaJugar].getJugador1(), 
+//                        mapasJugables[numeroMapaJugar].getJugador2(), mapasJugables[numeroMapaJugar].obtenerTablero(),
+//                        mapasJugables[numeroMapaJugar], mapasJugables[numeroMapaJugar].obtenerCantidadColumnas(), 
+//                        mapasJugables[numeroMapaJugar].obtenerCantidadFilas());
                 }catch(NullPointerException e){
                     
                 }
